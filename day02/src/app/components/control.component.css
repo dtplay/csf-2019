@@ -1,0 +1,22 @@
+.box {
+  width: 20vw;
+  height: 10vh;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 10px;
+}
+.dec {
+  border-color: lightblue;
+  background: lightblue;
+}
+.dec:hover {
+  border-color: blue;
+}
+
+.inc {
+  border-color: pink;
+  background: pink;
+}
+.inc:hover {
+  border-color: red;
+}

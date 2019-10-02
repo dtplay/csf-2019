@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  dices = [ 1, 5, 3, 6 ];
+
+  dices = [ ];
 
   constructor() {
     console.info('>> in constructor');
@@ -18,6 +19,19 @@ export class AppComponent {
     //   },
     //   1000 // every second
     // );
+  }
+
+  private generateDice(numDice: number): number[] {
+    const dices: number[] = []
+    for (let i = 0; i < numDice; i++)
+      dices.push(Math.floor(Math.random() * 6) + 1);
+    return (dices);
+  }
+
+  updateValue(newValue) {
+    console.info('updateValue: ', newValue);
+    this.dices = this.generateDice(newValue);
+    console.info('new dices: ', this.dices)
   }
 
   clicked(eventObject) {
