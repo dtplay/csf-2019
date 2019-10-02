@@ -1,0 +1,8 @@
+<button type="button" style="height: 5vh;" (click)="clicked($event)">
+  Start
+</button>
+<hr>
+<app-dice [diceValue]="dices[0]" (click)="rollDice(0)"></app-dice>
+<app-dice [diceValue]="dices[1]" (click)="rollDice(1)"></app-dice>
+<app-dice [diceValue]="dices[2]" (click)="rollDice(2)"></app-dice>
+<app-dice [diceValue]="dices[3]" (click)="rollDice(3)"></app-dice>
