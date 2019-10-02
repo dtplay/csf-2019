@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { SKU, INVENTORY } from '../models';
 
@@ -11,12 +11,16 @@ export class InventoryComponent implements OnInit {
 
   readonly inventory = INVENTORY;
 
+  @Output()
+  onNewItem = new EventEmitter<SKU>();
+
   constructor() { }
 
   ngOnInit() { }
 
   selectItem(itemId, idx) {
     console.info('item selected ', itemId, idx);
+    this.onNewItem.next(this.inventory[idx]);
   }
 
 }

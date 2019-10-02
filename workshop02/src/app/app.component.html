@@ -3,6 +3,6 @@
 </div>
 
 <div class="side-by-side">
-  <app-inventory></app-inventory>
+  <app-inventory (onNewItem)="addItem($event)"></app-inventory>
   <app-cart></app-cart>
 </div>
