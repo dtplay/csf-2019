@@ -1,0 +1,6 @@
+h1 {
+  font-size: 3em;
+  border: 30px transparent solid;
+  padding: 15px;
+  border-image: url(/assets/flower.jpg) 100 round;
+}
