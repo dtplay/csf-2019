@@ -1,24 +1,47 @@
-  <div>
-    Dirty: {{ rsvpForm.dirty }} Pristine: {{ rsvpForm.pristine }}
-    Valid: {{ rsvpForm.valid }} Invalid: {{ rsvpForm.invalid }}
+<mat-toolbar color="primary" fxLayout="row column" fxLayoutAlign="space-between center">
+  <div fxlayout="row" fxLayoutAlign="start center" fxLayoutGap="1vw">
+    <img src="assets/rsvp.jpeg" class="mylogo">
+    <span>RSVP to my Party</span>
   </div>
 
-<h1>RSVP to my Party</h1>
+  <button mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
 
-<form #rsvpForm="ngForm" (ngSubmit)="processForm(rsvpForm)">
+</mat-toolbar>
 
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" ngModel #nameField="ngModel" required> <br>
+<form #rsvpForm="ngForm" (ngSubmit)="processForm(rsvpForm)"
+  fxLayout="column row" fxLayoutGap="3wh">
 
-  <label for="phone">Contact:</label>
-  <input type="tel" id="phone" name="phone" ngModel required> <br>
+  <mat-form-field>
+    <input matInput type="text" id="name" name="name"
+      ngModel #nameField="ngModel"
+      placeholder="Please enter your name" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="tel" matInput id="phone" name="phone" ngModel
+      placeholder="Please enter your phone number" required #phoneField>
+  </mat-form-field>
+
+  <div fxLayout="row column" fxLayoutAlign="space-around">
+    <button mat-raised-button type="reset" color="basic">
+      <mat-icon>clear</mat-icon>
+      Clear
+    </button>
+    <button mat-raised-button type="submit" [disabled]="rsvpForm.invalid" color="primary">
+      <mat-icon>reply</mat-icon>
+      RSVP!
+    </button>
+
+  </div>
 
   <label for="email">Email:</label>
-  <input type="email" id="email" name="email" ngModel required> <br>
+  <input type="email" id="email" name="email" ngModel > <br>
 
   <label for="attending">Attending:</label>
-  <input type="radio" id="attending" name="attending" value="yes" ngModel required> YES
-  <input type="radio" id="attending" name="attending" value="no" ngModel required> NO <br>
+  <input type="radio" id="attending" name="attending" value="yes" ngModel > YES
+  <input type="radio" id="attending" name="attending" value="no" ngModel r> NO <br>
 
   <label for="allergies">Allergies:</label>
   <input type="checkbox" id="allergies" name="allergies-seafood" value="seafood" ngModel> SEAFOOD
@@ -32,8 +55,5 @@
   <textarea name="comments" id="comments" cols="30" rows="10" ngModel></textarea>
   <br>
 
-  <button type="submit" [disabled]="rsvpForm.invalid">
-    RSVP!
-  </button>
 
 </form>
