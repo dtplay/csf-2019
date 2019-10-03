@@ -4,5 +4,5 @@
 
 <div class="side-by-side">
   <app-inventory (onNewItem)="addItem($event)"></app-inventory>
-  <app-cart></app-cart>
+  <app-cart [cart]="cart"></app-cart>
 </div>

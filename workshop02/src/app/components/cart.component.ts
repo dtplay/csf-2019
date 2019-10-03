@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LineItem } from '../models';
 
 @Component({
@@ -8,11 +8,11 @@ import { LineItem } from '../models';
 })
 export class CartComponent implements OnInit {
 
+  @Input()
   cart: LineItem[] = [];
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

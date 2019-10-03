@@ -3,3 +3,8 @@
 <div *ngIf="cart.length == 0">
   <h2>Your cart is empty</h2>
 </div>
+
+<div *ngFor="let i of cart">
+  <div><strong>{{ i.sku.name }}</strong></div>
+  <div>{{ i.quantity }}</div>
+</div>

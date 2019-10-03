@@ -8,9 +8,7 @@ import { SKU, LineItem } from './models';
 })
 export class AppComponent {
 
-  cart: LineItem[] = [
-
-  ]
+  cart: LineItem[] = [ ]
 
   addItem($event: SKU) {
     const i = this.cart.find((v) => v.sku.itemId == $event.itemId)
