@@ -23,7 +23,7 @@ export class RsvpComponent implements OnInit {
     const rsvp: RSVP = {
       name: values.name,
       phone: values.phone,
-      attendingDay: (new Date(values.attendingDay)).getDate(),
+      attendingDay: (new Date(values.attendingDay)).getTime(),
       vegetarian: values.vegetarian == "yes",
       comments: values.comments,
       guest: parseInt(values.guests) || 0,
