@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { RsvpComponent } from './components/rsvp.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -11,8 +13,9 @@ import { RsvpComponent } from './components/rsvp.component';
     RsvpComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule
+    BrowserModule, BrowserAnimationsModule,
+    FormsModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
