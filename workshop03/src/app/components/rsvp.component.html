@@ -1,7 +1,10 @@
 <form #form="ngForm" (ngSubmit)="processForm(form)" fxLayout="column" fxLayoutGap="3vh">
   <mat-form-field>
-    <input type="text" name="name" id="name" ngModel required matInput
-      placeholder="Please enter your name">
+    <input type="text" name="name" id="name" ngModel required matInput minlength="5"
+      placeholder="Please enter your name" #nameField="ngModel">
+    <mat-error *ngIf="nameField.hasError('minlength')">
+      Name must be longer than 5 characters
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field>
