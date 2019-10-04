@@ -1,0 +1,49 @@
+<form #form="ngForm" (ngSubmit)="processForm(form)"
+  fxLayout="column row" fxLayoutGap="20px">
+
+  <!--
+  <label for="search_terms">Search:</label>
+
+  <input type="text" name="search_terms" id="search_terms"
+      placeholder="What can I search for you today?" ngModel required>
+  -->
+
+  <mat-form-field>
+
+    <input matInput type="text" name="search_terms" id="search_terms"
+        placeholder="What can I search for you today?" required
+        ngModel #searchField="ngModel">
+
+    <mat-hint *ngIf="searchField.invalid && form.dirty">
+      Please tell me what you want to find.
+    </mat-hint>
+
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="email" name="abc" id="abc"
+        placeholder="Please enter your email " required
+        ngModel #emailField="ngModel" email>
+    <mat-hint>
+      Please enter your email
+    </mat-hint>
+
+    <mat-error *ngIf="emailField.hasError('email')">
+      Email format is username@&lt;someserver&gt; &copy;
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input name="mydate" placeholder="Choose a date"
+        ngModel matInput
+        [matDatepicker]="mypicker">
+    <mat-datepicker touchUi="true" #mypicker></mat-datepicker>
+    <mat-datepicker-toggle matSuffix [for]="mypicker"></mat-datepicker-toggle>
+  </mat-form-field>
+
+  <button id="search-btn" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+    <mat-icon>search</mat-icon>
+    Search It!
+  </button>
+
+</form>

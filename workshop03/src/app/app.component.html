@@ -1,2 +1,8 @@
-<h1>High School Reunion</h1>
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+  <span> High School Reunion </span>
+  <button mat-icon-button [disabled]="!shareable"
+    (click)="shareTheJoy()">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
 <app-rsvp (onNewRSVP)="addToList($event)"></app-rsvp>

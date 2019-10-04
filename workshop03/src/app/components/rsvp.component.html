@@ -1,37 +1,55 @@
-<form #form="ngForm" (ngSubmit)="processForm(form)">
-  <label for="name">Name:</label>
-  <input type="text" name="name" id="name" ngModel required>
-  <br>
+<form #form="ngForm" (ngSubmit)="processForm(form)" fxLayout="column" fxLayoutGap="3vh">
+  <mat-form-field>
+    <input type="text" name="name" id="name" ngModel required matInput
+      placeholder="Please enter your name">
+  </mat-form-field>
 
-  <label for="guest">Guest:</label>
-  <input type="number" name="guest" id="guest" ngModel min="0" max="3">
-  <br>
+  <mat-form-field>
+    <input type="tel" name="phone" id="phone" ngModel required matInput
+      placeholder="Please enter your mobile phone">
+    <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field>
 
-  <label for="phone">Phone:</label>
-  <input type="tel" name="phone" id="phone" ngModel required>
-  <br>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date"
+        name="attendingDay" ngModel required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker touchUi="true"></mat-datepicker>
+  </mat-form-field>
 
-  <label for="attendingDay">Attending:</label>
-  <input type="date" name="attendingDay" id="attendingDay" ngModel required>
-  <br>
+  <mat-label>Number of Guests</mat-label>
+  <mat-slider #guests min="0" max="3" step="1" tickInterval="1"
+      value="0" thumbLabel>
+  </mat-slider>
 
-  <label for="vegetarian">Vegetarian:</label>
-  <input type="radio" name="vegetarian" id="vegetarian" ngModel value="no" selected required> NO
-  <input type="radio" name="vegetarian" id="vegetarian" ngModel value="yes" required> YES
-  <br>
+  <mat-label>Vegetarian</mat-label>
+  <mat-radio-group ngModel name="vegetarian" fxLayout="row" fxLayoutGap="3vw">
+    <mat-radio-button value="no">Meat Lover</mat-radio-button>
+    <mat-radio-button value="yes">Vegetarian</mat-radio-button>
+  </mat-radio-group>
 
-  <label for="allergies">Allergies:</label>
-  <input type="checkbox" name="allergies-peanut" id="allergies" ngModel> PEANUT
-  <input type="checkbox" name="allergies-gluten" id="allergies" ngModel> GLUTEN
-  <input type="checkbox" name="allergies-diary" id="allergies" ngModel> DIARY
-  <input type="checkbox" name="allergies-shellfish" id="allergies" ngModel> SHELLFISH
-  <br>
+  <mat-label>Allergies</mat-label>
+  <div fxLayout="row column" fxLayoutAlign="start center" fxLayoutGap="20vw">
+    <mat-checkbox ngModel name="allergies-peanut">Peanut</mat-checkbox>
+    <mat-checkbox ngModel name="allergies-gluten">Gluten</mat-checkbox>
+  </div>
+  <div fxLayout="row column" fxLayoutAlign="start center" fxLayoutGap="20vw">
+    <mat-checkbox ngModel name="allergies-diary">Diary</mat-checkbox>
+    <mat-checkbox ngModel name="allergies-shellfish">Shellfish</mat-checkbox>
+  </div>
 
-  <label for="comments">Comments:</label>
-  <textarea name="comments" id="comments" cols="30" rows="10" ngModel></textarea>
-  <br>
+  <mat-form-field>
+    <textarea name="comments" id="comments" cols="30" rows="3" ngModel matInput placeholder="Any comments?"></textarea>
+  </mat-form-field>
 
-  <button type="reset">Clear</button>
-  <button type="submit" [disabled]="form.invalid">Reply</button>
+  <div fxLayout="row column" fxLayoutAlign="space-around center">
+    <button mat-raised-button type="reset" color="warn">
+      Clear
+    </button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+      Reply
+    </button>
+
+  </div>
 
 </form>

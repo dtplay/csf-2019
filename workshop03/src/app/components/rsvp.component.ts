@@ -17,6 +17,10 @@ export class RsvpComponent implements OnInit {
 
   ngOnInit() {}
 
+  formatLabel(val: number): string {
+    return `${val} guest`;
+  }
+
   processForm(form: NgForm) {
     const values = form.value;
     console.info('values: ', values);
