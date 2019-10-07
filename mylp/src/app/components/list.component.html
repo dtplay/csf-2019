@@ -1,0 +1,17 @@
+<div *ngIf="items.length <= 0" fxLayout="column row" fxLayoutAlign="center center">
+  <mat-label>You currently have no LPs in your collection</mat-label>
+  <img src="assets/vinyl.png" class="vinyl">
+</div>
+
+<mat-card *ngFor="let lp of items; let i = index">
+  <mat-card-header>
+    <mat-card-title>{{ lp.title }}</mat-card-title>
+    <mat-card-subtitle>{{ lp.artist | uppercase }}</mat-card-subtitle>
+  </mat-card-header>
+  <img [src]="lp.image || 'assets/placeholder.png'" mat-card-image>
+  <mat-card-actions *ngIf="canShare">
+    <button mat-icon-button>
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

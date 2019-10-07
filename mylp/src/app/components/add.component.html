@@ -1,0 +1,43 @@
+<mat-accordion>
+  <mat-expansion-panel #expandPanel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Add</mat-panel-title>
+      <mat-panel-description>Add a vinyl to your collection</mat-panel-description>
+    </mat-expansion-panel-header>
+
+      <form fxLayout="column row" fxLayoutGap="1vh" fxLayoutAlign="start stretch"
+          #form="ngForm" [formGroup]="addForm" (ngSubmit)="processForm(form)">
+
+        <mat-form-field>
+          <input type="text" name="title" required placeholder="LP title"
+            matInput formControlName="title">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="text" name="artist" required placeholder="Artist name"
+            matInput formControlName="artist">
+        </mat-form-field>
+
+        <mat-label>Rating</mat-label>
+        <mat-slider min="0" max="10" step="1" thumbLabel tickInterval="1" formControlName="rating">
+        </mat-slider>
+
+        <mat-form-field>
+          <input type="text" name="image" placeholder="LP cover"
+            matInput formControlName="image">
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayoutAlign="flex-end" fxLayoutGap="5vw">
+          <button type="reset" mat-raised-button>
+            Clear
+          </button>
+          <button type="submit" mat-raised-button color="accent" [disabled]="addForm.invalid">
+            <mat-icon>add</mat-icon>
+            Add
+          </button>
+
+        </div>
+
+      </form>
+  </mat-expansion-panel>
+</mat-accordion>

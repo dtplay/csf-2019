@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <img src="assets/vinyl.png" class="app-icon">
+  My Vinyl Collection
+</mat-toolbar>
+
+<div class="app-body" fxLayout="column row" fxLayoutGap="4vh">
+  <app-add (onNewLP)="onNewLp($event)"></app-add>
+  <app-list [items]="lpCollection"></app-list>
+</div>

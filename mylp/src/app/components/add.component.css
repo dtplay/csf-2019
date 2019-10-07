@@ -1,0 +1,14 @@
+form {
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.full-width {
+  height: auto;
+  width: 100vw !important;
+}
+
+mat-label {
+  color: grey;
+}
