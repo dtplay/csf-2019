@@ -23,9 +23,11 @@ export class ListComponent implements OnInit {
     const details = {
       title: `${lp.title} by ${lp.artist}`,
       text: 'This is one of my favourtie album',
-    }
-    if (!!lp.image)
-      details['url'] = lp.image;
-    navigator['share'](details);
+      url: lp.image || 'https://icon-library.net/images/image-placeholder-icon/image-placeholder-icon-7.jpg'
+    };
+
+    navigator['share'](details)
+      .then(() => { /* added */ })
+      .catch((error) => alert(JSON.stringify(error)));
   }
 }

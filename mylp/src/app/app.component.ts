@@ -18,12 +18,12 @@ export class AppComponent {
         const newName = $event.artist.toLowerCase();
         if (currName == newName) {
             if (v.title.toLowerCase() > $event.title.toLowerCase())
-                return (1);
-            return (-1);
+                return (-1);
+            return (1);
         }
         if (currName > newName)
-          return 1;
-        return (-1);
+          return -1;
+        return (1);
       });
       console.info('>> lpCollection: ', this.lpCollection)
   }

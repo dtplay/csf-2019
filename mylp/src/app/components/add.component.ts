@@ -24,6 +24,7 @@ export class AddComponent implements OnInit {
 
   ngOnInit() {
     this.addForm = this.createGroup();
+    this.addForm.controls['title'].hasError('required')
   }
   processForm() {
     const lp = this.addForm.value as LPDetail;
