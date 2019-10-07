@@ -6,7 +6,7 @@
     </mat-expansion-panel-header>
 
       <form fxLayout="column row" fxLayoutGap="1vh" fxLayoutAlign="start stretch"
-          #form="ngForm" [formGroup]="addForm" (ngSubmit)="processForm(form)">
+          #form [formGroup]="addForm" (ngSubmit)="processForm()">
 
         <mat-form-field>
           <input type="text" name="title" required placeholder="LP title"
